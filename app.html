@@ -64,6 +64,8 @@
           // an ajax request for JSON data and render a template into the page.
           // alterContent( this.attr( "#map" ) );
         });
+
+
         $('#input_submit_button').on('click', function(){
             mapStart();
             var radio = $('input:checked').val(); 
@@ -71,6 +73,10 @@
 
 
             console.log(radio);
+        });
+
+        $('.rating > span').on('click',function(){
+            $(this).addClass('orange_color');
         });
         
     });
@@ -102,7 +108,7 @@
                     </li>
                     <li data-theme="c">
                         <a href="#clue" data-transition="slide">
-                            Button
+                            Startup Scavenger
                         </a>
                     </li>
                     <li data-theme="c">
@@ -204,7 +210,7 @@
         
         <div data-role="content">
             <!-- <button id="test">TEST TEST TEST BUTTON</button> -->
-            <div id="map_canvas" style="display:block; height:500px; width:300px;"></div>
+            <div id="map_canvas" style="display:block; height:500px; display:block;"></div>
             <!-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=Madison, WI&amp;zoom=14&amp;size=288x200&amp;markers=Madison, WI&amp;sensor=false" width="288" height="200" /> -->
 <!-- 
             <div id="yelp">
@@ -233,9 +239,10 @@
                         <h3>
                             Rate
                         </h3>
-                        <h2>
-                            Placeholder for stars
-                        </h2>
+                        <h3>Rate this adventure</h3>
+                        <div class="rating">
+                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        </div>
                     </div>
                 </div>
                 <div data-role="collapsible-set">
@@ -251,17 +258,27 @@
                         </h4>
                     </div>
                 </div>
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>
+                            Photo hunt!
+                        </h3>
+                         <img id="camera" src="assets/img/orange_camera.svg" alt="camera"/>
+                        <input type="file" accept="image/*" capture="camera" id="capture"/> 
+                    </div>
+                </div>
+                
+
+
                 <a data-role="button" data-theme="b" href="https://m.facebook.com/" data-icon="star" data-iconpos="left">
                     Share on Facebook
                 </a>
-                <div>
-                    <label for id="capture">Capture</label>
-                    <input type="file" accept="image/*" capture="camera" id="capture"/> 
-                </div>
 
-                <div>
-                    <a href=""><button accept="image/*" capture="camera" id="capture2">Capture</button></a>
-                </div>
+                
+                <!-- <div> -->
+                    <!-- <label for id="capture">Capture</label> -->
+                    
+                <!-- </div> -->
                 <!-- <a href=""><button accept="image/*" capture="camera" id="capture2">Capture</button></a> -->
             </div>
         </div>

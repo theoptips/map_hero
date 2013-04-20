@@ -89,3 +89,19 @@ legend{
 	display: block;
 	background-color: none;
 }
+#camera{
+	border:none;
+	width: 50px;
+	height: 50px;
+}
+
+.rating span{
+	font-size: 40px;
+	margin: 2px;
+}
+
+.orange_color{
+	color: black;
+	background-color: orange;
+	border-radius: 5px;
+}
