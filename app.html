@@ -47,19 +47,40 @@
             geoloqi.auth = {'access_token': 'b42d3-93226131afe09ff3b95cb1df920e2424b912af6d'};
 
             function whereami(lat, lng){
+
                 geoloqi.get('place/nearby', {
-                  latitude: 45.516454,
-                  longitude: -122.675997,
+                  latitude: lat, //45.516454,
+                  longitude: lng, //-122.675997,
+
                   radius: 100
                 }, function(response, error){
                     console.log(response, error);
-                    console.log('error');
+                    console.log('whereami');
+                    console.log(response.nearby[response.nearby.length-1].name);
+                    return response.nearby[response.nearby.length-1].name;
                     
                 });
             };
 
-            whereami(37.769565,-122.402776);
+            function newplace(lat, lng, name){
+                geoloqi.post("place/create", {
+                  latitude: lat, //45.516454,
+                  longitude: lng, //-122.675997,
+                  radius: 100,
+                  name: name
 
+                }, function(response, error){
+                    console.log(response, error);
+                    console.log('added place');
+                    // whereami(37.769565,-122.402776);
+                });
+            }
+
+            newplace(37.769734,-122.402776, 'Airbnb, 99 Rhode Island St San Francisco, CA 94103');
+            var airbnb = whereami(37.769734,-122.402776);
+
+            newplace(37.75809,-122.38768, 'Zynga, 610 22nd Street, San Francisco, CA 94107');
+            var zynga = whereami(37.75809,-122.38768);
             function mapStart() {
             // Also works with: var yourStartLatLng = '59.3426606750, 18.0736160278';
                 var yourStartLatLng = new google.maps.LatLng(59.3426606750, 18.0736160278);
@@ -67,14 +88,16 @@
                 var $marker1 =  $('#map_canvas').gmap('addMarker', { /*id:'m_1',*/ 'position': '37.75809, -122.38768', 'bounds': true, 'animation': google.maps.Animation.DROP } );
                 $marker1.click(function(){
                     // console.log('Hi');
-                    $('#map_canvas').gmap('openInfoWindow', {'content': '<h3 style="color:red;">Zynga!</h3>'+'<img src="assets/img/zynga.png" style="width:200px;height:230px;" alt="stinky rose"/>'+'<a  href="http://www.yelp.com/biz/starbucks-san-francisco-120"><img src="assets/img/yelp.png" id="yelp" alt="stinky rose"/></a>'+'<a href="#" style="text-align:center;">Yelp Deal $</a>'}, this);
+                    $('#map_canvas').gmap('openInfoWindow', {'content': '<h3 style="color:red;">Zynga!</h3>'+'<img src="assets/img/zynga.png" style="width:200px;height:230px;" alt="stinky rose"/>'+'<a  href="http://www.yelp.com/biz/starbucks-san-francisco-120"><img src="assets/img/yelp.png" id="yelp" alt="stinky rose"/></a>'+'<a href="#" style="text-align:center;">Yelp Deal $</a>'+'<a href="#" class="whereami_button" style="display:block" id="place1">Where am I? <span class="hidden" id="place1_val"></span></a>'}, this);
                 });
                 var $marker0 =  $('#map_canvas').gmap('addMarker', { /*id:'m_1',*/ 'position': '37.769734, -122.402776', 'bounds': true, 'animation': google.maps.Animation.DROP } );
                 $marker0.click(function(){
                     // console.log('Hi');
-                    $('#map_canvas').gmap('openInfoWindow', {'content': '<h3 style="color:gray;">AirBnB!</h3>'+'<img src="assets/img/airbnb_logo.png" style="width:200px;height:230px;" alt="stinky rose"/>'+'<a  href="http://www.yelp.com/biz/starbucks-san-francisco-120"><img src="assets/img/yelp.png" id="yelp" alt="stinky rose"/></a>'+'<a href="#" style="text-align:center;">Yelp Deal $</a>'}, this);
+                    $('#map_canvas').gmap('openInfoWindow', {'content': '<h3 style="color:gray;">AirBnB!</h3>'+'<img src="assets/img/airbnb_logo.png" style="width:200px;height:230px;" alt="stinky rose"/>'+'<a  href="http://www.yelp.com/biz/starbucks-san-francisco-120"><img src="assets/img/yelp.png" id="yelp" alt="stinky rose"/></a>'+'<a href="#" style="text-align:center;">Yelp Deal $</a>'+'<a href="#" class="whereami_button" style="display:block" id="place0">Where am I? <span class="hidden" id="place0_val"></span></a>'}, this);
                 });
 
+                $('#place0_val').html(airbnb);
+                $('#place1_val').html(zynga);
                 // $('#map_canvas').gmap('displayDirections', { 'origin': new google.maps.LatLng(37.75809,-122.38768), 'destination': new google.maps.LatLng(37.769734,-122.402776), 'travelMode': google.maps.DirectionsTravelMode.DRIVING }, { 'panel': document.getElementById('directions')}, function(success, result) {
                 // if ( success )
                 //         // alert('Results found!');
@@ -143,7 +166,7 @@
 </head>
 <body>
 
-    
+        
 	<!--Home-->
 	<div data-role="page" id="page1">
 		<div data-theme="a" data-role="header">
