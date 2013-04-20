@@ -68,6 +68,10 @@
                     $('#map_canvas').gmap('openInfoWindow', {'content': '<h3 style="color:red;">Zynga!</h3>'+'<img src="assets/img/zynga.png" style="width:200px;height:230px;" alt="stinky rose"/>'+'<a  href="http://www.yelp.com/biz/starbucks-san-francisco-120"><img src="assets/img/yelp.png" id="yelp" alt="stinky rose"/></a>'+'<a href="#" style="text-align:center;">Yelp Deal $</a>'}, this);
                 });
                 var $marker0 =  $('#map_canvas').gmap('addMarker', { /*id:'m_1',*/ 'position': '37.769734, -122.402776', 'bounds': true, 'animation': google.maps.Animation.DROP } );
+                $marker0.click(function(){
+                    // console.log('Hi');
+                    $('#map_canvas').gmap('openInfoWindow', {'content': '<h3 style="color:gray;">AirBnB!</h3>'+'<img src="assets/img/airbnb_logo.png" style="width:200px;height:230px;" alt="stinky rose"/>'+'<a  href="http://www.yelp.com/biz/starbucks-san-francisco-120"><img src="assets/img/yelp.png" id="yelp" alt="stinky rose"/></a>'+'<a href="#" style="text-align:center;">Yelp Deal $</a>'}, this);
+                });
 
 
             };
