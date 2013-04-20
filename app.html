@@ -6,6 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />  
 	<title>TreasureHunter</title>
+
     <link rel="icon" 
       type="image/png" 
       href="/assets/icon/favicon/here.png" />
@@ -37,7 +38,7 @@
             // Also works with: var yourStartLatLng = '59.3426606750, 18.0736160278';
                 var yourStartLatLng = new google.maps.LatLng(59.3426606750, 18.0736160278);
                 $('#map_canvas').gmap({'center': yourStartLatLng});
-                var $marker1 =  $('#map_canvas').gmap('addMarker', { /*id:'m_1',*/ 'position': '59.3426606650, 18.0736160278', 'bounds': true } );
+                var $marker1 =  $('#map_canvas').gmap('addMarker', { /*id:'m_1',*/ 'position': '37.75809, -122.38768', 'bounds': true, 'animation': google.maps.Animation.DROP } );
                 $marker1.click(function(){
                     console.log('Hi');
                     $('#map_canvas').gmap('openInfoWindow', {'content': '<h3 style="color:red;">Zynga!</h3>'+'<img src="assets/img/zynga.png" style="width:200px;height:230px;" alt="stinky rose"/>'+'<a  href="http://www.yelp.com/biz/starbucks-san-francisco-120"><img src="assets/img/yelp.png" id="yelp" alt="stinky rose"/></a>'+'<a href="#" style="text-align:center;">Yelp Deal $</a>'}, this);
