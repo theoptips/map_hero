@@ -82,3 +82,10 @@ legend{
 .block_brick{
 	display: block;
 }
+
+#yelp{
+	width: 40px;
+	height: 40px;
+	display: block;
+	background-color: none;
+}
