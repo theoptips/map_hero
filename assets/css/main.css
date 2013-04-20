@@ -1,0 +1,84 @@
+img{
+	border: 10px solid black;
+	border-radius: 5px;
+	margin: auto;
+}
+
+#page1 h2{
+	color: white;
+	text-align: center;
+}
+
+#page1_content{
+	background-color: gray;
+}
+
+#clue textarea{
+	border: 10px solid black;
+}
+
+#choices {
+	width:70%;
+	margin-left: 10%;
+}
+
+.helper_link{
+	width:200px;
+	/*float:right;*/
+	/*margin-left: 20%;*/
+	margin-left:40px;
+}
+
+#input_submit_button{
+	/*float:right;*/
+
+	/*margin-right: 10%;*/
+	margin-top: 10px;
+	margin-left: 20px;
+	font-size: 15px;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+/*#input_submit_button a{
+	color:white;
+	text-decoration: none;
+}
+*/
+.center_element{
+	margin: 0px auto;
+	text-align: center;
+}
+
+.block_quote{
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 40px;
+	border: 10px solid black;
+	border-radius: 5%;
+	margin: 10px;
+	padding: 10px;
+
+}
+
+.quote_mark{
+	font-size: 300%;
+	color:gray;
+	font-weight: bold;
+}
+legend{
+	margin-left: 10%;
+}
+
+.label{
+	/*margin-left: 10%;*/
+	padding-left: 10%; 
+}
+
+#map_canvas{
+	width:100%;
+}
+
+.block_brick{
+	display: block;
+}
