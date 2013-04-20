@@ -38,6 +38,8 @@
 
         $(document).ready(function(){
 
+
+
              geoloqi.init({
               client_id: "d2623ad1eac099a9c01475c4b9d1d561"
             });
@@ -73,8 +75,26 @@
                     $('#map_canvas').gmap('openInfoWindow', {'content': '<h3 style="color:gray;">AirBnB!</h3>'+'<img src="assets/img/airbnb_logo.png" style="width:200px;height:230px;" alt="stinky rose"/>'+'<a  href="http://www.yelp.com/biz/starbucks-san-francisco-120"><img src="assets/img/yelp.png" id="yelp" alt="stinky rose"/></a>'+'<a href="#" style="text-align:center;">Yelp Deal $</a>'}, this);
                 });
 
+                // $('#map_canvas').gmap('displayDirections', { 'origin': new google.maps.LatLng(37.75809,-122.38768), 'destination': new google.maps.LatLng(37.769734,-122.402776), 'travelMode': google.maps.DirectionsTravelMode.DRIVING }, { 'panel': document.getElementById('directions')}, function(success, result) {
+                // if ( success )
+                //         // alert('Results found!');
+                //         console.log('found');
+                // });
+
 
             };
+
+            function getDirectionNow(){
+                $('#map_canvas').gmap('displayDirections', { 'origin': new google.maps.LatLng(37.75809,-122.38768), 'destination': new google.maps.LatLng(37.769734,-122.402776), 'travelMode': google.maps.DirectionsTravelMode.DRIVING }, { 'panel': document.getElementById('directions')}, function(success, result) {
+                if ( success )
+                        // alert('Results found!');
+                        console.log('found');
+                });
+            }
+
+            $('#get_direction_now_button').on('click',function(){
+                getDirectionNow();
+            });
 
             mapStart(); 
 
@@ -199,7 +219,7 @@
                 <legend>Hint:</legend>
                 <div class="textarea block_quote block_brick">
                 	<!-- <p><span class="quote_mark" style="float:left">"</p> -->
-                	<p>You can use this website to rate and find awesome restaurants and bars in San Francisco, rated and upheld by the locals!"</p>
+                	<p>We are not just playing games here. A happy red dog in the ville.</p>
                 	<!-- <p><span class="quote_mark" style="float:right">"</p> -->
                 </div>
             </div>
@@ -213,19 +233,19 @@
 	            </legend> -->
 	            <input id="radio2" name="bar" value="radio1" data-theme="b" type="radio" />
 	            <label for="radio2">
-	                Stinky Rose
+	                Airbnb
 	            </label>
 	            <input id="radio3" name="bar" value="radio3" data-theme="b" type="radio" />
 	            <label for="radio3">
-	                Yelp
+	                Skillshare
 	            </label>
 	            <input id="radio4" name="bar" value="radio4" data-theme="b" type="radio" />
 	            <label for="radio4">
-	                Drunken Pigs
+	                Kickstarter
 	            </label>
 	            <input id="radio5" name="bar" value="radio5" data-theme="b" type="radio" />
 	            <label for="radio5">
-	                Lombard
+	                Zynga
 	            </label>
 	            <!-- <input type="submit" value="SUBMIT ANSWER" id="input_submit_button" class="btn btn-info" /> -->
                 <a href="app.html#map"><button id="input_submit_button" class="btn btn-info">SUBMIT ANSWER</button></a>
@@ -255,6 +275,10 @@
             <div id="yelp">
                 <a href="http://www.yelp.com/biz/the-stinking-rose-san-francisco"><img src="assets/img/yelp.png"/></a>
             </div> -->
+
+            <a data-role="button" data-theme="b" href="#" data-icon="star" data-iconpos="left" id="get_direction_now_button">
+                   Get Direction
+            </a>
             
 
             <div data-role="navbar" data-iconpos="top">
