@@ -56,8 +56,8 @@
                 }, function(response, error){
                     console.log(response, error);
                     console.log('whereami');
-                    console.log(response.nearby[response.nearby.length-1].name);
-                    return response.nearby[response.nearby.length-1].name;
+                    console.log(response.nearby[0].display_name);
+                    return response.nearby[0].display_name;
                     
                 });
             };
@@ -76,10 +76,10 @@
                 });
             }
 
-            newplace(37.769734,-122.402776, 'Airbnb, 99 Rhode Island St San Francisco, CA 94103');
+            // newplace(37.769734,-122.402776, 'Airbnb, 99 Rhode Island St San Francisco, CA 94103');
             var airbnb = whereami(37.769734,-122.402776);
 
-            newplace(37.75809,-122.38768, 'Zynga, 610 22nd Street, San Francisco, CA 94107');
+            // newplace(37.75809,-122.38768, 'Zynga, 610 22nd Street, San Francisco, CA 94107');
             var zynga = whereami(37.75809,-122.38768);
             function mapStart() {
             // Also works with: var yourStartLatLng = '59.3426606750, 18.0736160278';
